@@ -1,23 +1,38 @@
 [
     {
         "id": 1,
-        "name": "erzef",
-        "surname": "efzef",
+        "name": "ezfzef",
+        "surname": "zfzef",
+        "password": "26a98b0fe1d50cc6245fd87f1a39a49ae316aed684df8f1affd09b2bce327ad4",
+        "code": "6549",
+        "accounts": {
+            "1": {
+                "id": 1,
+                "IBAN": "FR53123456789094117304121",
+                "balance": 0.0,
+                "history": []
+            }
+        }
+    },
+    {
+        "id": 2,
+        "name": "dzfez",
+        "surname": "ezfzef",
         "password": "d4b3dfbf113cc8b2f6fd71bcb24b761d04b47c04a59b22a2a7db91b275542892",
         "code": "1234",
-        "accounts": [
-            {
+        "accounts": {
+            "1": {
                 "id": 1,
-                "IBAN": "FR53123456789098643201070",
+                "IBAN": "FR19123456789019809655814",
                 "balance": 500.0,
                 "history": [
                     {
                         "action": "deposit",
                         "amount": 500.0,
-                        "date": "2025-10-20T10:21:06.331984"
+                        "date": "2025-10-20T11:38:32.974935"
                     }
                 ]
             }
-        ]
+        }
     }
 ]

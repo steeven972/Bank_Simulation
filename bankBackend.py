@@ -13,12 +13,12 @@ def generate_iban():
     return f"{country_code}{control_key}{bank_code}{branch_code}{account_number}"
 
 class BankAccount:
-    def __init__(self, id, user, init_amount=0.0):
+    def __init__(self, id, IBAN, balance, history):
         self.id = id
-        self.user = user
-        self.balance = init_amount
-        self.history = []
-        self.iban = generate_iban()
+        self.iban = IBAN
+        self.balance = balance
+        self.history = history or []
+        self.iban = IBAN or generate_iban()
         self.currency = "EUR"
         
     def deposit(self, amount):
@@ -76,9 +76,9 @@ class User:
         self.code = code
         self.accounts = {}
         
-    def add_account(self, account_id, init_amount=0):
-        if account_id not in self.accounts:
-            self.accounts[account_id] = BankAccount(account_id,self, init_amount)
+    def add_account(self, account):
+        if str(account.get_id()) not in self.accounts:
+            self.accounts[account.get_id()] = account
         else:
             return "Account ID already exists."
         

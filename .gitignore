@@ -1,0 +1,47 @@
+# --- Environnements virtuels ---
+venv/
+.env/
+.env.bak
+*.env
+
+# --- Fichiers Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+
+# --- Fichiers de logs et temporaires ---
+*.log
+*.tmp
+*.bak
+*.swp
+*.swo
+
+# --- Données de l’application ---
+users.json
+data.json
+*.db
+*.sqlite3
+
+# --- Fichiers de configuration locaux ---
+config.json
+settings.json
+
+# --- Fichiers systèmes ---
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- IDE et éditeurs ---
+.vscode/
+.idea/
+*.code-workspace
+
+# --- Build / Distribution ---
+build/
+dist/
+*.egg-info/
+*.spec
+
+# --- Sauvegardes diverses ---
+backup/
+old_versions/

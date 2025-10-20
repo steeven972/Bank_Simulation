@@ -133,15 +133,20 @@ class CreateAccountFrame(tk.Frame):
             "balance": 0.0,
             "history": []
         }
-        new_user = {
+        '''new_user = {
             "id": new_id,
             "name": name,
             "surname": surname,
             "password": password,
             "code": code,
             "accounts": [account]
-        }
-        self.parent.users.append(new_user)
+        }'''
+        new_user_obj = User(new_id, name, surname, password, code)
+        account_obj = BankAccount(1, None, 0.0, [])
+        new_user_obj.add_account(account_obj)
+        new_user_data = new_user_obj.save_user_data()
+
+        self.parent.users.append(new_user_data)
         self.parent.save_users()
 
         # clear fields
@@ -241,7 +246,7 @@ class AccountInterface(tk.Frame):
         if not accounts:
             messagebox.showerror("Erreur", "Aucun compte trouvé."); parent.show_frame(HomeFrame); return
 
-        self.user_account = accounts[0]
+        self.user_account = accounts["1"]
         bal = self.user_account.get("balance", 0.0)
         tk.Label(self, text=f"User: {self.user['name']} {self.user['surname']} (ID: {self.user_id})").pack()
         self.iban_label = tk.Label(self, text=f"IBAN: {self.user_account.get('IBAN')}")
@@ -282,6 +287,8 @@ class DepositFrame(tk.Frame):
         self.parent = parent
         self.user_id = None
         tk.Label(self, text="Deposit", font=("Arial", 14)).pack(pady=12)
+
+        tk.Label(self, text="Deposit Funds into Your Account").pack(pady=8)
         tk.Label(self, text="Amount to Deposit:").pack()
         self.entry_amount = tk.Entry(self); self.entry_amount.pack(pady=6)
         tk.Button(self, text="Submit", command=self.submit_deposit).pack(pady=6)
@@ -313,7 +320,7 @@ class DepositFrame(tk.Frame):
             if u.get("id") == self.user_id:
                 if "accounts" not in u or not u["accounts"]:
                     messagebox.showerror("Erreur", "Aucun compte pour cet utilisateur."); return
-                acc = u["accounts"][0]
+                acc = u["accounts"]["1"]
                 acc["balance"] = round(acc.get("balance", 0.0) + amount, 2)
                 hist = acc.get("history", [])
                 hist.append({"action":"deposit", "amount": amount, "date": datetime.datetime.now().isoformat()})
