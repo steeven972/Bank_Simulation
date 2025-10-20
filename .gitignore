@@ -45,3 +45,5 @@ dist/
 # --- Sauvegardes diverses ---
 backup/
 old_versions/
+
+Users.json
