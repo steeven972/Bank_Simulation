@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "name": "erzef",
+        "surname": "efzef",
+        "password": "d4b3dfbf113cc8b2f6fd71bcb24b761d04b47c04a59b22a2a7db91b275542892",
+        "code": "1234",
+        "accounts": [
+            {
+                "id": 1,
+                "IBAN": "FR53123456789098643201070",
+                "balance": 500.0,
+                "history": [
+                    {
+                        "action": "deposit",
+                        "amount": 500.0,
+                        "date": "2025-10-20T10:21:06.331984"
+                    }
+                ]
+            }
+        ]
+    }
+]
